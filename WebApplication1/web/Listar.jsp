@@ -12,11 +12,11 @@
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>C.C</th>
-                        <th>Edad</th>
-                        <th>N_Celular</th>
-                        <th>Sexo</th>
+                        <th>ID</th>
+                        <th>DNI</th>
+                        <th>Nombres</th>
+                        <th>ACCIONES</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +25,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                       
                     </tr>
                 </tbody>
             </table>
