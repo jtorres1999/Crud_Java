@@ -1,4 +1,8 @@
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="Modelo.Persona"%>
+<%@page import="ModeloDAO.PersonaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,14 +23,30 @@
                         
                     </tr>
                 </thead>
+                <%
+                    PersonaDAO dao= new PersonaDAO();
+                    List<Persona>list=dao.Listar();
+                    Iterator<Persona>iter=list.iterator();
+                    Persona per=null;
+                     //creamos un while para que el iterator corra
+                            while (iter.hasNext()) {
+                            per=iter.next();
+                            //creamos un while para que el iterator corra
+                
+                        }
+                   %>
                 <tbody>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <td><%= per.getId()%></td>
+                        <td><%= per.getDni()%></td>
+                        <td><%= per.getNombres()%></td>
+                        <td>
+                            <a>Editar</a>      
+                            <a>Remover</a>  
+                        </td>
                        
                     </tr>
+                    <%%>
                 </tbody>
             </table>
         </div>
