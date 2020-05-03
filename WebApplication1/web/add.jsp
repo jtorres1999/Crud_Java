@@ -8,6 +8,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>
+            <h1><center>Agregar Personas</center></h1>
+            <form action="Controlador">
+                ID:<br>
+                <input type="text" name="txtDni"><br><br>
+                Nombres: <br>
+                  <input type="text" name="txtNom"><br>
+                  <br>
+                <input type="submit" name="accion" value="Agregar"><br>
+            </form>
+        </div>
     </body>
 </html>

@@ -1,6 +1,8 @@
 
 package Controlador;
 
+import Modelo.Persona;
+import ModeloDAO.PersonaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -11,8 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Controlador extends HttpServlet {
 
-    String listar="Listar.jsp", add="add.jsp", edit= "Editar.jsp";
-    
+    String listar="Listar.jsp";
+    String add="add.jsp";
+    String edit= "Editar.jsp";
+    Persona p= new Persona();
+    PersonaDAO dao=new PersonaDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -37,6 +42,15 @@ public class Controlador extends HttpServlet {
         String action=request.getParameter("accion");
         //para listar en el controlador
         if (action.equalsIgnoreCase("listar")) {
+            acceso=listar;
+        }else if(action.equalsIgnoreCase("add")){
+            acceso="add";
+        }else if(action.equalsIgnoreCase("Agregar")){
+            String dni=request.getParameter("txtDni");
+            String nom=request.getParameter("txtNombres");
+           p.setDni(dni);
+           p.getNombres();
+            dao.add(p);
             acceso=listar;
         }
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
