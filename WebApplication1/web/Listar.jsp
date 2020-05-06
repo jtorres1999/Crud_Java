@@ -31,7 +31,7 @@
                      //creamos un while para que el iterator corra
                             while (iter.hasNext()) {
                             per=iter.next();
-                            //creamos un while para que el iterator corra
+                          
                 
                         }
                    %>
@@ -41,8 +41,9 @@
                         <td><%= per.getDni()%></td>
                         <td><%= per.getNombres()%></td>
                         <td>
+                            //Agregar a los botones su accion
                             <a href="Controlador?accion=editar&id=<%= per.getId()%>">Editar</a>      
-                            <a>Remover</a>  
+                            <a href="Controlador?accion=eliminar&id=<%= per.getId()%>>Remover</a>  
                         </td>
                        
                     </tr>

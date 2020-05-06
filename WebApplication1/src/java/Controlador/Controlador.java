@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Controlador extends HttpServlet {
-
+    
+//aqui hacemos todas las condiciones necesarias para que los botones funcionen
+    int id;
     String listar="Listar.jsp";
     String add="add.jsp";
     String edit= "Editar.jsp";
@@ -42,8 +44,10 @@ public class Controlador extends HttpServlet {
         //para listar en el controlador
         if (action.equalsIgnoreCase("listar")) {
             acceso=listar;
+        
         }else if(action.equalsIgnoreCase("add")){
             acceso="add";
+            //para añadir en el controlador
         }else if(action.equalsIgnoreCase("Agregar")){
             String dni=request.getParameter("txtDni");
             String nom=request.getParameter("txtNombres");
@@ -57,12 +61,20 @@ public class Controlador extends HttpServlet {
             request.setAttribute("idper", request.getParameter("id"));
             acceso=edit;
         }else if(action.equalsIgnoreCase("Actualizar")){
-            int Id = Integer.parseInt(request.getParameter("txtid"));
+            id = Integer.parseInt(request.getParameter("txtid"));
             String dni=request.getParameter("txtDni");
             String nom=request.getParameter("txtNombres");
             p.getId();
             p.setDni(dni);
            p.getNombres();
+           dao.edit(p);
+           acceso=listar;
+        }
+        else if(action.equalsIgnoreCase("Eliminar")){
+        id= Integer.parseInt(request.getParameter("id"));
+        p.setId(id);
+        dao.eliminar(id);
+        acceso=listar;
         }
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);
