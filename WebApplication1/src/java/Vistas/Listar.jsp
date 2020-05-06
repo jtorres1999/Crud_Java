@@ -41,7 +41,7 @@
                         <td><%= per.getDni()%></td>
                         <td><%= per.getNombres()%></td>
                         <td>
-                            <a>Editar</a>      
+                            <a href="Controlador?accion=editar&id=<%= per.getId()%>">Editar</a>      
                             <a>Remover</a>  
                         </td>
                        

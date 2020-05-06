@@ -1,6 +1,5 @@
 
 package Controlador;
-
 import Modelo.Persona;
 import ModeloDAO.PersonaDAO;
 import java.io.IOException;
@@ -52,6 +51,18 @@ public class Controlador extends HttpServlet {
            p.getNombres();
             dao.add(p);
             acceso=listar;
+        }
+        else if(action.equalsIgnoreCase("editar")){
+            //capturamos el id y lo enviamos al formulario
+            request.setAttribute("idper", request.getParameter("id"));
+            acceso=edit;
+        }else if(action.equalsIgnoreCase("Actualizar")){
+            int Id = Integer.parseInt(request.getParameter("txtid"));
+            String dni=request.getParameter("txtDni");
+            String nom=request.getParameter("txtNombres");
+            p.getId();
+            p.setDni(dni);
+           p.getNombres();
         }
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);

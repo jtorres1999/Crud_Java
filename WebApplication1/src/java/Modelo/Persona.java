@@ -8,9 +8,10 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String Nombres, String Dni) {
+    public Persona(String Nombres, String Dni, int Id) {
         this.Nombres = Nombres;
         this.Dni = Dni;
+        this.Id = Id;
     }
 
     public int getId() {
@@ -36,6 +37,8 @@ public class Persona {
     public void setDni(String Dni) {
         this.Dni = Dni;
     }
+
+   
   
     
 }
