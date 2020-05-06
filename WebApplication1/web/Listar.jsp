@@ -8,18 +8,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <title>JSP Page</title>
     </head>
     <body>
-        <div>
+        <div class="container">
+       
             <h1>Personas</h1>
-            <table border="1">
+            <a class="btn btn-success " href="Controlador?accion=add">Añadir</a>
+            <br>
+           
+            <table  class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>DNI</th>
-                        <th>Nombres</th>
-                        <th>ACCIONES</th>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">DNI</th>
+                        <th class="text-center">Nombres</th>
+                        <th class="text-center">ACCIONES</th>
                         
                     </tr>
                 </thead>
@@ -37,13 +42,13 @@
                    %>
                 <tbody>
                     <tr>
-                        <td><%= per.getId()%></td>
-                        <td><%= per.getDni()%></td>
-                        <td><%= per.getNombres()%></td>
+                        <td class="text-center"><%= per.getId()%></td>
+                        <td class="text-center"><%= per.getDni()%></td>
+                        <td class="text-center"><%= per.getNombres()%></td>
                         <td>
                             //Agregar a los botones su accion
-                            <a href="Controlador?accion=editar&id=<%= per.getId()%>">Editar</a>      
-                            <a href="Controlador?accion=eliminar&id=<%= per.getId()%>>Remover</a>  
+                            <a class="btn btn-warning" href="Controlador?accion=editar&id=<%= per.getId()%>">Editar</a>      
+                            <a class="btn btn-danger" href="Controlador?accion=eliminar&id=<%= per.getId()%>>Remover</a>  
                         </td>
                        
                     </tr>
